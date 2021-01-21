@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 import User from '../models/User';
-class PlantController {
+class UserController {
     async index(req, res) {
         const user = await User.findAll();
     
@@ -49,4 +49,4 @@ class PlantController {
          
 }
 
-export default new PlantController();
+export default new UserController();

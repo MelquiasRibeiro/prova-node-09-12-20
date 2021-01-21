@@ -1,6 +1,17 @@
 import * as Yup from 'yup';
 import User from '../models/User';
-class PlantController {    
+class PlantController {
+    async index(req, res) {
+        const user = await User.findAll();
+    
+        return res.json({ user });
+      }
+    
+      async show(req, res) {
+        const user = await User.findByPk(req.params.id);
+    
+        return res.json({ user });
+      }    
       async store(req, res) {
         const schema = Yup.object().shape({
           name: Yup.string().required(),

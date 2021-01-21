@@ -40,6 +40,12 @@ class PlantController {
     
         return res.status(201).send(user);
       }
+
+      async destroy(req, res) {
+        await User.destroy({ where: { id: req.params.id } });
+    
+        return res.status(204).json({"status":"deleted"});
+      }
          
 }
 

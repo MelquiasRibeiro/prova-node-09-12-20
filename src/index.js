@@ -8,13 +8,19 @@ import Routes from './routes';
 import './database';
 
 class APP {
+    
     constructor() {
         this.server = express();
         this.middlewares();
         this.routes();
         this.exceptionHandler();
+        this.ambient();
     }
 
+    ambient(){
+           process.env.NODE_ENV === "test" ? ".env.test" : ".env"       
+    }
+    
     middlewares() {
         this.server.use(cors());
         this.server.use(express.json());
